@@ -1,14 +1,16 @@
 ---
 layout: default
 ---
-<div id="post">
+<h3><a href="{{ page.url }}">{{page.title}}</a></h3>
+    <div class="smallinfo graycolor">Posted on {{ page.date | date_to_string }}</div>
+<div class="post">
 {{ content }}
 </div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    /*var disqus_developer = 1; */
-    var disqus_shortname = 'rioki';
+    var disqus_developer = 1;
+    var disqus_shortname = 'joevennix';
     var disqus_identifier = '{{ page.id | remove: '/'}}';
     var disqus_url = '{{ site.url }}{{ page.url }}';
 

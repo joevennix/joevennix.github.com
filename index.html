@@ -1,12 +1,16 @@
 ---
 layout: default
-title: "Rioki's Corner"
+title: "Between Extremes"
 ---
 {% for post in site.posts limit:3 %}
-    <h2><a href="{{ post.url }}">{{post.title}}</a></h2>
-    <div class="post_date">{{ post.date | date_to_string }}</div>
-    <div class="post_content">
-        {{ post.content | strip_html | truncatewords: 100 }} 
-        <a href="{{ post.url }}">read more</a>
-    </div>    
+    <h3><a href="{{ post.url }}">{{post.title}}</a></h3>
+    <div class="smallinfo graycolor">Posted on {{ post.date | date_to_string }}</div>
+    <div class="postContent">
+        {{ post.content |  truncatewords: 150 }} 
+    </div>   
+    <div class="postInfo">
+		<a href="{{ post.url }}">read more</a> | <a href="#">30 comments</a>
+	</div>
+	<div class="separator"></div> 
+
 {% endfor %}

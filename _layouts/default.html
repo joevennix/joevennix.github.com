@@ -19,9 +19,21 @@
             jQuery('a[rel*=facebox]').facebox();
             $('#container').noisy({'intensity' : 0.357, 'size' : 200, 'opacity' : 0.123, 'fallback' : '', 'monochrome' : false});
             $('#nightcontainer').noisy({'intensity' : 0.018, 'size' : 200, 'opacity' : 0.498, 'fallback' : '', 'monochrome' : true});
+
+            //set bg based on time
+            var hr = new Date().getHours();
+            var ratio = 0;
+            if (hr >= 5 && hr <= 21) ratio = Math.sin(((hr-5)/16.0)*(Math.PI/2.0));
+            var col = parseInt(ratio*255);
             $("#nightcontainer").animate({
-                 backgroundColor: "rgba(0,0,0,0.7)"
-            }, 2400 );
+                 backgroundColor: "rgba(8,9,24,"+(ratio*.7)+")"
+            }, 1500 );
+            $("#page").animate({
+                 backgroundColor: "rgba("+col+","+col+","+col+",0.2)"
+            }, 1500 );
+
+            //$("#nightcontainer").css('backgroundColor', "rgba(17,20,46,"+(ratio*.7)+")");
+            //$("#page").css("backgroundColor", "rgba("+col+","+col+","+col+",0.2)");
         });
     </script>
 </head>

@@ -101,3 +101,6 @@ $.fn.extend({
       });
   }
 });
+
+(function(a){a.fn.noisy=function(b){return this.each(function(){var c=document.createElement("canvas"),h=c.getContext("2d");if(!h&&b.fallback!==undefined&&b.fallback!=="")a(this).css("background-image","url("+b.fallback+"),"+a(this).css("background-image"));else{b=a.extend({},a.fn.noisy.defaults,b);c.width=c.height=b.size;for(var d=h.createImageData(c.width,c.height),e=function(i,k){return Math.floor(Math.random()*(k-i)+i)},j=0;j<b.intensity*Math.pow(b.size,2);j++){var f=e(0,c.width),g=e(0,c.height);
+      f=(f+g*d.width)*4;g=e(0,255);d.data[f]=g;d.data[f+1]=b.monochrome?g:e(0,255);d.data[f+2]=b.monochrome?g:e(0,255);d.data[f+3]=e(0,255*b.opacity)}h.putImageData(d,0,0);a(this).data("original-css")==undefined&&a(this).data("original-css",a(this).css("background-image"));a(this).css("background-image","url("+c.toDataURL("image/png")+"),"+a(this).data("original-css"))}})};a.fn.noisy.defaults={intensity:0.9,size:200,opacity:0.08,fallback:"",monochrome:false}})(jQuery);

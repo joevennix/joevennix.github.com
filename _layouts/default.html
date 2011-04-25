@@ -12,9 +12,9 @@
     <script src="/js/facebox.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            if (((navigator.userAgent.indexOf("WebKit")!=-1)||(navigator.userAgent.indexOf("Mozilla")!=-1) || (navigator.userAgent.indexOf("Chrome")!=-1)) && navigator.userAgent.indexOf("iPhone")!==1)
+            if (((navigator.userAgent.indexOf("WebKit")!=-1)||(navigator.userAgent.indexOf("Mozilla")!=-1) || (navigator.userAgent.indexOf("Chrome")!=-1)) && navigator.userAgent.indexOf("Mobile")<0)
             $('#container').jScrollie();
-            $('img').wrap('<div class="divImg">');
+            $('#container img').wrap('<div class="divImg">');
             //hljs.initHighlightingOnLoad();
             jQuery('a[rel*=facebox]').facebox();
         });
@@ -23,8 +23,15 @@
 <body>
 <div style="display:none">
     <div id="me">
-        <img src="/images/me.png" align="left" />
-        About me goes here.
+        <p>Hello, I’m Joe Vennix, and this is where I blog. </p>
+
+            
+      <img src="/images/me.png" align="left" style="padding-right:10px; padding-top:5px;" />
+            <p>I am a twenty year-old CS student at the University of Texas. I work as a developer and a designer. My past work includes writing iPhone apps, designing and coding websites, and creating custom software. My products have been featured on Apple commercials, billboards, and magazines.</p>
+       
+            <p>I am currently busy with school and contracting, but from time to time I will post a personal project up here.</p>
+
+            <p><a href="">Twitter</a> <a href="">Facebook</a> <a href="">Github</a></p>
     </div>
 </div>
 <div id="container">

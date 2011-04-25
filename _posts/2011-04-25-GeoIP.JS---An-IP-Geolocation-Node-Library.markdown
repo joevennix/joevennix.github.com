@@ -1,0 +1,19 @@
+---
+layout: post
+title: "GeoIP.JS - An IP Geolocation Library for Node.JS"
+---
+<pre><code>/*=========    GeoIP.JS Sample Code    ==========*/
+var geo = require('./GeoIP-js/geoip.js');
+geo.open({ cache: true, filename: './geoip/GeoLiteCity.dat'});
+var coord = geo.lookup('74.125.227.16');
+console.log(coord);
+geo.close();
+</code></pre>
+
+Last week I needed a way to geocode IP addresses to GPS coordinates using Node.JS. I needed the geocoding done fast (locally) as I wanted to serve the coordinates within the page. I eventually found the (free) <a href="http://www.maxmind.com/app/c">MaxMind GeoIP API</a> which is a C library that parses their (also free) database of cities, <a href="http://www.maxmind.com/app/geolitecity">GeoLite City</a>, which is accurate “over 99.5% on a country level and 79% on a city level for the US within a 25 mile radius.” Good enough for me.
+
+Unfortunately, while wrapper libraries had been written over the C API in a few different languages, Javascript was not among them. Luckily, Node.JS supports writing native extensions in C++, so with the help of a few <a href="https://www.cloudkick.com/blog/2010/aug/23/writing-nodejs-native-extensions/">walkthroughs</a> and <a href="http://www.scribd.com/Writing-Native-Extension-for-Node/d/39860807">examples</a>, I was able to hack together a native binding around the MaxMind C API.
+
+I pushed the result to GitHub <a href="https://github.com/joevennix/GeoIP-js">here</a>; it might be helpful for anyone trying to figure out how to write native extensions for Node.JS. The library is far from complete: the C API allows you to pull data such as city, state, and zip code, whereas my implementation simply takes an IP and returns an array of coordinates. However, following the same model set up in my code, it would be trivial to code up similar functions that return other data.
+
+One other thing: this library is synchronous. I thought this might cause some trouble, so I ran a few benchmarks. I found that the API often responded in less than 1ms - amazing! The API by default caches the database in memory, leading to some very fast lookups.

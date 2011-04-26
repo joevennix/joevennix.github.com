@@ -41,7 +41,8 @@ $.fn.extend({
               $this.jScrollie();
             }
           }
-        window.setInterval(function() { rs(); }, 400);
+        window.setInterval(function() { rs(); }, 500);
+        jScroll.scroll(rs);
         //other dynamic size cases here? original code had a setInterval loop that resized
       }
 

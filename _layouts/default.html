@@ -18,11 +18,12 @@
             //hljs.initHighlightingOnLoad();
             jQuery('a[rel*=facebox]').facebox();
             $('#container').noisy({'intensity' : 0.357, 'size' : 200, 'opacity' : 0.123, 'fallback' : '', 'monochrome' : false});
-            $('#nightcontainer').noisy({'intensity' : 0.018, 'size' : 200, 'opacity' : 0.498, 'fallback' : '', 'monochrome' : true});
+            //$('#nightcontainer').noisy({'intensity' : 0.018, 'size' : 200, 'opacity' : 0.498, 'fallback' : '', 'monochrome' : true});
 
             //set bg based on time
             var hr = new Date().getHours();
-            var ratio = 0;
+            console.log(hr);
+            var ratio = 1;
             if (hr >= 5 && hr <= 21) ratio = Math.sin(((hr-5)/16.0)*(Math.PI/2.0));
             var col = parseInt(ratio*255);
             $("#nightcontainer").animate({
@@ -39,20 +40,20 @@
 </head>
 <body>
 <div style="display:none">
-    <div id="me">
-        <p>Hello, I’m Joe Vennix, and this is where I blog. </p>
-
+    <div id="me"><div id="inme">
+        <h5>Hello, I’m Joe Vennix, and this is where I blog. </h5>
+        <div class="separator"></div>
             
       <img src="/images/me.png" align="left" style="padding-right:10px; padding-top:5px;" />
-            <p>I am a twenty year-old CS student at the University of Texas. I work as a developer and a designer. My past work includes writing iPhone apps, designing and coding websites, and creating custom software. My products have been featured on Apple commercials, billboards, and magazines.</p>
+            <p>I am a twenty year-old CS student at the University of Texas. I work as a developer and a designer. My past work includes writing iPhone apps, designing and coding websites, and creating custom software. My products have been featured on national commercials, billboards, and magazines.</p>
        
             <p>I am currently busy with school and contracting, but from time to time I will post a personal project up here.</p>
 
-            <p><a href="http://twitter.com/joevennix">Twitter</a> <a href="http://facebook.com/joevennix">Facebook</a> <a href="http://github.com/joevennix">Github</a></p>
-    </div>
+            <p><a href="http://twitter.com/joevennix">Twitter</a> / <a href="http://facebook.com/joevennix">Facebook</a> / <a href="http://github.com/joevennix">Github</a></p>
+    </div></div>
 </div>
 <div id="container"><div id="nightcontainer">
-        
+    <div id="top"></div>
     <div id="pagecontainer">
         <div id="page"><div id="white">
             <div id="header">
@@ -69,7 +70,7 @@
         </div>
     </div>
 </div></div>
-<div id="top"></div>
+
 
 </body>
 </html>

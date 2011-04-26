@@ -14,27 +14,10 @@
         $(document).ready(function() {
             if (((navigator.userAgent.indexOf("WebKit")!=-1)||(navigator.userAgent.indexOf("Mozilla")!=-1) || (navigator.userAgent.indexOf("Chrome")!=-1)) && navigator.userAgent.indexOf("Mobile")<0)
             $('#container').jScrollie();
-            $('#container img').wrap('<div class="divImg">');
+            $('#page img').wrap('<div class="divImg">');
             //hljs.initHighlightingOnLoad();
             jQuery('a[rel*=facebox]').facebox();
-            $('#container').noisy({'intensity' : 0.357, 'size' : 200, 'opacity' : 0.123, 'fallback' : '', 'monochrome' : false});
-            $('#nightcontainer').noisy({'intensity' : 0.018, 'size' : 200, 'opacity' : 0.498, 'fallback' : '', 'monochrome' : true});
-
-            //set bg based on time
-            var hr = new Date().getHours();
-            console.log(hr);
-            var ratio = 1;
-            if (hr >= 5 && hr <= 21) ratio = Math.sin(((hr-5)/16.0)*(Math.PI/2.0));
-            var col = parseInt(ratio*255);
-            $("#nightcontainer").animate({
-                 backgroundColor: "rgba(8,9,24,"+(ratio*.7)+")"
-            }, 1500 );
-            $("#page").animate({
-                 backgroundColor: "rgba("+col+","+col+","+col+",0.2)"
-            }, 1500 );
-
-            //$("#nightcontainer").css('backgroundColor', "rgba(17,20,46,"+(ratio*.7)+")");
-            //$("#page").css("backgroundColor", "rgba("+col+","+col+","+col+",0.2)");
+            $('#container').noisy({'intensity' : 0.02, 'size' : 300, 'opacity' : 0.498, 'fallback' : '', 'monochrome' : true});
         });
     </script>
 </head>
@@ -52,7 +35,7 @@
             <p><a href="http://twitter.com/joevennix">Twitter</a> / <a href="http://facebook.com/joevennix">Facebook</a> / <a href="http://github.com/joevennix">Github</a></p>
     </div></div>
 </div>
-<div id="container"><div id="nightcontainer">
+<div id="container">
     <div id="top"></div>
     <div id="pagecontainer">
         <div id="page"><div id="white">
@@ -66,10 +49,13 @@
         </div></div>
     </div>
     <div id="footer">
+        <div id="grass"></div>
         <div id="innerFooter">
+            <p>This blog is published with <a href="https://github.com/mojombo/jekyll">Jekyll</a> and is hosted on <a href="https://github.com/joevennix/joevennix.github.com"><img src="./images/fork.png" /> Github</a>.</p>
+            <p>Design and posts authored by <a href="#me" rel="facebox">Joe Vennix</a>, 2011.</p>
         </div>
     </div>
-</div></div>
+</div>
 
 
 </body>

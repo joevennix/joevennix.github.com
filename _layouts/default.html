@@ -19,7 +19,7 @@
             $('pre').overscroll({showThumbs:false, direction:'horizontal', wheelDirection:'horizontal'});
             $('#page img').wrap('<div class="divImg"><a href="#" onclick="openImage(this); return false;">');
             jQuery('a[rel*=facebox]').facebox();
-            $('#container').noisy({'intensity' : 0.02, 'size' : 300, 'opacity' : 0.498, 'fallback' : '', 'monochrome' : true});
+            $('#headband').noisy({'intensity' : 0.03, 'size' : 300, 'opacity' : 0.298, 'fallback' : '', 'monochrome' : true});
         });
         function openImage(link) {
             document.location = $("> img", $(link)).attr('src');
@@ -42,10 +42,12 @@
 </div>
 <div id="container">
     <div id="top"></div>
+
     <div id="pagecontainer">
+        
         <div id="page"><div id="white">
             <div id="header">
-                <h1><a href="/">[between<br />extremes]</a>    </h1>
+                <h1><a href="/">[between<br />extremes]</a></h1>
                 <div class="graycolor sublogo">The personal blog of <a href="#me" rel="facebox">Joe Vennix</a>.</div>
             </div>
             <div id="content">
@@ -61,7 +63,6 @@
         </div>
     </div>
 </div>
-
-
+<!--<div id="headband"></div>-->
 </body>
 </html>

@@ -19,7 +19,7 @@
             $('pre').overscroll({showThumbs:false, direction:'horizontal', wheelDirection:'horizontal'});
             $('#page img').wrap('<div class="divImg"><a href="#" onclick="openImage(this); return false;">');
             jQuery('a[rel*=facebox]').facebox();
-            $('#headband').noisy({'intensity' : 0.03, 'size' : 300, 'opacity' : 0.298, 'fallback' : '', 'monochrome' : true});
+            //$('#headband').noisy({'intensity' : 0.03, 'size' : 300, 'opacity' : 0.298, 'fallback' : '', 'monochrome' : true});
         });
         function openImage(link) {
             document.location = $("> img", $(link)).attr('src');

@@ -117,7 +117,6 @@ i { font-style:italic;}
 	h3 { font-size:1.2em; }
 	.postInfo { margin-top:20px;}
 	.postInfo a
-	.separator { height:20px;}
 	#innerFooter { width:90%; }
 	#innerFooter p { font-size:.8em;}
 	.divImg img { width:80%; }
@@ -125,8 +124,8 @@ i { font-style:italic;}
 	p { margin-top:1.4em; margin-bottom:1.5em;}
 	ol { margin-left:10px; }
 	#facebox .content { width:280px;}
-	h1 {font-size:3em; margin-bottom:10px; }
-	#header { padding:12px; padding-bottom:28px; }
+	h1 {font-size:2.5em; margin-bottom:10px; }
+	#header { padding:12px; padding-bottom:35px; }
 	#top{width:100%; background-image:url(../images/iphone_header.png);background-repeat:repeat-x;height:40px;} 
 	code {font-size:.85em; }
 	li { font-size:1em; }

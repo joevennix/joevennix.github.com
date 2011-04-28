@@ -8,6 +8,7 @@ geo.open({ cache: true, filename: './geoip/GeoLiteCity.dat'});
 var coord = geo.lookup('74.125.227.16');
 console.log(coord);
 geo.close();
+geo.open({ cache: true, filename: './geoip/GeoLiteCity.dat'}); geo.open({ cache: true, filename: './geoip/GeoLiteCity.dat'}); geo.open({ cache: true, filename: './geoip/GeoLiteCity.dat'});
 </code></pre>
 
 Last week I needed a way to geocode IP addresses to GPS coordinates using Node.JS. I needed the geocoding done fast (locally) as I wanted to serve the coordinates within the page. I eventually found the (free) <a href="http://www.maxmind.com/app/c">MaxMind GeoIP API</a> which is a C library that parses their (also free) database of cities, <a href="http://www.maxmind.com/app/geolitecity">GeoLite City</a>, which is accurate “over 99.5% on a country level and 79% on a city level for the US within a 25 mile radius.” Good enough for me.

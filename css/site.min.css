@@ -117,7 +117,7 @@ i { font-style:italic;}
 	h3 { font-size:1.2em; }
 	.postInfo { margin-top:20px;}
 	.postInfo a
-	#innerFooter { width:90%; }
+	#innerFooter { margin-left:10%; }
 	#innerFooter p { font-size:.8em;}
 	.divImg img { width:80%; }
 	.sublogo { padding-top:0;}

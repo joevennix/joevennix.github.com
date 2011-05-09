@@ -54,8 +54,8 @@ p a { text-decoration:underline; font-weight:normal; color:#000;}
 body {font-family:Georgia, 'Times New Roman', Times, serif; }
 code { font-family:Monaco, Courier New, Courier, monospace; font-size:.85em; line-height:1.4; color:#222; }
 pre code { font-size:1em; }
-ol { list-style:decimal; font-family:Georgia, 'Times New Roman', Times, serif;font-size:inherit;line-height:1.7; margin-top:1.5em;}
-
+ol, ul { list-style:decimal; font-family:Georgia, 'Times New Roman', Times, serif;font-size:inherit;line-height:1.7; margin-top:1.5em;}
+ul { list-style:circle; }
 .jScrollieClear { background:#333; border:1px solid #333; }
 .note { background:#f2f2f2; font-family:Helvetica, Arial, sans-serif; font-size:1em; margin-top:1.5em; margin-bottom:1.5em; padding:10px; line-height:1.5; border-radius:8px; -moz-box-shadow: inset 0 0 5px #aaa; -moz-border-radius:8px; 
 -webkit-box-shadow: inset 0 0 5px #aaa;
@@ -130,3 +130,4 @@ i { font-style:italic;}
 	code {font-size:.85em; }
 	li { font-size:1em; }
 }
+.dsq-comment-text > a { font-weight:normal !important; text-decoration:underline !important; color:#000 !important;}

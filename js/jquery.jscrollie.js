@@ -1,4 +1,109 @@
-$.fn.extend({jScrollie:function(){this.each(function(r){var e=$(this);var o=e.data("jScrollie");if(o==null){var m=14;e.wrap('<div class="jScrollieMetaContainer">');e.before('<div class="jScrollieContainer" style="width:'+m+'px"><div class="jScrollieTrack"><div class="jScrollieDrag"><div class="jScrollieDragTop"></div><div class="jScrollieDragBottom"></div></div></div></div>');e.append('<div class="jScrollieClear" style="clear:both;"></div>');e.wrap('<div class="jScrollie">');var j=e.parent();o=j.prev();var p=$("> :first",e);p.css("overflow","hidden");e.data("jScrollie",o);e.data("track",$(".jScrollieTrack",o));e.data("drag",$(".jScrollieDrag",o));e.data("dragTop",$(".jScrollieDragTop",o));e.data("dragBottom",$(".jScrollieDragBottom",o));e.data("content",p);e.data("clearer",$("> :last",e));e.data("scroller",j);o.hide();var h=function(u){var v=t.offset();var i=e.data("offset");if((e.height()!=e.data("height"))||(b.position().top-p.position().top!=e.data("contentHeight"))||(v.top!=i.top)||(v.left!=i.left)){e.jScrollie()}};window.setInterval(function(){h()},400)}var m=e.data("barWidth");var n=e.data("track");var s=e.data("drag");var a=e.data("dragTop");var f=e.data("dragBottom");var p=e.data("content");var b=e.data("clearer");var t=e.data("scroller");var q=b.position().top-p.position().top;e.data("height",t.height());e.data("contentHeight",q);e.data("offset",t.offset());e.unbind();var g=t.height()/q;if(g<1){o.show();p.addClass("jScrollieVisible");o.height(t.height()-10);var c=t.offset();o.css("right","2px").css("top","10px");var l=Math.max(Math.round(t.height()*g),a.height()+f.height());s.height(l-20);var d=function(){s.css("top",Math.min(Math.round(t.scrollTop()*g),t.height()-l)+"px")};d();t.scroll(function(i){d()});var k=function(){$("html").unbind("mousemove.jScrollie")};s.mousedown(function(u){k();var i=u.pageY-s.offset().top;$("html").bind("mousemove.jScrollie",function(v){t.scrollTop((v.pageY-t.offset().top-i)/g);return false}).mouseup(k);return false});n.mousedown(function(i){t.scrollTop(((i.pageY-20)/t.height())*q)})}else{e.unbind();o.hide();p.removeClass("jScrollieVisible");p.width(e.width()-p.innerWidth()+p.width())}})}});
-(function(c){c.fn.noisy=function(b){b=c.extend({},c.fn.noisy.defaults,b);var d,a;if(JSON&&localStorage.getItem)a=localStorage.getItem(JSON.stringify(b));if(a)d=a;else{a=document.createElement("canvas");if(a.getContext){a.width=a.height=b.size;for(var h=a.getContext("2d"),e=h.createImageData(a.width,a.height),i=b.intensity*Math.pow(b.size,2),j=255*b.opacity;i--;){var f=(~~(Math.random()*a.width)+~~(Math.random()*a.height)*e.width)*4,g=i%255;e.data[f]=g;e.data[f+1]=b.monochrome?g:~~(Math.random()*255);
-e.data[f+2]=b.monochrome?g:~~(Math.random()*255);e.data[f+3]=~~(Math.random()*j)}h.putImageData(e,0,0);d=a.toDataURL("image/png");if(d.indexOf("data:image/png")!=0||c.browser.msie&&c.browser.version.substr(0,1)<9&&d.length>32768)d=b.fallback}else d=b.fallback;JSON&&localStorage&&localStorage.setItem(JSON.stringify(b),d)}return this.each(function(){c(this).css("background-image","url('"+d+"'),"+c(this).css("background-image"))})};c.fn.noisy.defaults={intensity:0.9,size:200,opacity:0.08,fallback:"",
-monochrome:false}})(jQuery);
+/**
+ * Code based off of: http://code.google.com/p/scrollbarpaper/
+ * @version last revision April 26 2011
+ */
+
+$.fn.extend({
+  jScrollie: function() {
+    this.each(function(i) {
+      var $this = $(this);
+      var jScroll = $this.data('jScrollie');
+      if (jScroll == null) {
+        //initialize the positioning divs
+        var barWidth = 14;
+        $this.wrap('<div class="jScrollieMetaContainer">');
+        $this.before('<div class="jScrollieContainer" style="width:' + barWidth + 'px"><div class="jScrollieTrack"><div class="jScrollieDrag"><div class="jScrollieDragTop"></div><div class="jScrollieDragBottom"></div></div></div></div>');
+        $this.append('<div class="jScrollieClear" style="clear:both;"></div>'); //needed to figure out content height
+        $this.wrap('<div class="jScrollie">');      
+        var scrollie = $this.parent();
+        jScroll = scrollie.prev();
+        var content = $('> :first', $this);
+        //save our settings
+        content.css('overflow', 'hidden');
+        $this.data('jScrollie',      jScroll);
+        $this.data('track',      $('.jScrollieTrack', jScroll));
+        $this.data('drag',       $('.jScrollieDrag', jScroll));
+        $this.data('dragTop',    $('.jScrollieDragTop', jScroll));
+        $this.data('dragBottom', $('.jScrollieDragBottom', jScroll));
+        $this.data('content',    content);
+        $this.data('clearer',    $('> :last', $this));
+        $this.data('scroller',   scrollie);
+        jScroll.hide();
+
+        var rs=function(e) {
+            //a resize function that should be called when content or window size changes.
+            var offset = scroller.offset();
+            var dataOffset = $this.data('offset');
+            if (($this.height() != $this.data('height'))
+             || (clearer.position().top - content.position().top != $this.data('contentHeight'))
+             || (offset.top != dataOffset.top)
+             || (offset.left != dataOffset.left)) {
+              $this.jScrollie();
+            }
+          }
+        window.setInterval(rs, 1000);
+        //other dynamic size cases here? original code had a setInterval loop that resized
+      }
+
+      var barWidth =   $this.data('barWidth');
+      var track =      $this.data('track');
+      var drag =       $this.data('drag');
+      var dragTop =    $this.data('dragTop');
+      var dragBottom = $this.data('dragBottom');
+      var content =    $this.data('content');
+      var clearer =    $this.data('clearer');
+      var scroller = $this.data('scroller');
+      var contentHeight = clearer.position().top - content.position().top;
+      $this.data('height', scroller.height());
+      $this.data('contentHeight', contentHeight);
+      $this.data('offset', scroller.offset());
+
+      $this.unbind();
+
+      //When you click the track, the scrollbar "jumps" to your mouse
+      var ratio = scroller.height() / contentHeight;
+
+      if (ratio < 1) { //content is big enough to show the scrollbar
+        jScroll.show();
+        content.addClass('jScrollieVisible');
+        jScroll.height(scroller.height()-10);
+        var offset = scroller.offset();
+        jScroll.css('right', '2px').css('top', '10px');
+        var dragHeight = Math.max(Math.round(scroller.height() * ratio), dragTop.height() + dragBottom.height());
+        drag.height(dragHeight-20);
+        var updateDragTop = function() { //called on scroll, and right now
+          drag.css('top', Math.min(Math.round(scroller.scrollTop() * ratio), scroller.height() - dragHeight) + 'px');
+        };
+        updateDragTop();
+
+        scroller.scroll(function(event) {
+          updateDragTop();
+        });
+
+        var unbindMousemove = function() {
+          $('html').unbind('mousemove.jScrollie');
+        };
+        drag.mousedown(function(event) {
+          unbindMousemove();
+          var offsetTop = event.pageY - drag.offset().top;
+          $('html').bind('mousemove.jScrollie', function(event) {
+            scroller.scrollTop((event.pageY - scroller.offset().top - offsetTop) / ratio);
+            return false;
+          }).mouseup(unbindMousemove);
+          return false;
+        });
+        //When you click the track, the scrollbar "jumps" to your mouse
+        track.mousedown(function(event) {
+          scroller.scrollTop(((event.pageY-20) / scroller.height()) * contentHeight);
+        });
+      }
+      else {
+        //content is small enough to hide the scroll bar
+        $this.unbind();
+        jScroll.hide();
+        content.removeClass('jScrollieVisible');
+        content.width($this.width() - content.innerWidth() + content.width());
+      }
+      });
+  }
+});

@@ -98,7 +98,7 @@
             	for (var i = 0; i < matches.length; i++) {
             		var match = matches[i];
             		html += '<div class="results_row"><div class="results_row_left"><a href="'+match.link+'">'+htmlEscape(match.title);
-            		html += '</a></div><div class="results_row_right">'+match.date+'</div></div>';
+            		html += '</a></div><div class="results_row_right">'+match.date+'</div><div style="clear:both;"></div></div>';
             	}
             	html += '</div>';
             	$('#content').html(html);

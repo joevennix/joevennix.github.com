@@ -13,17 +13,131 @@
     <!--<script src="http://yandex.st/highlightjs/5.16/highlight.min.js" type="text/javascript"></script>-->
     <script src="/js/facebox.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function() {        	
             if (((navigator.userAgent.indexOf("WebKit")!=-1)||(navigator.userAgent.indexOf("Mozilla")!=-1) || (navigator.userAgent.indexOf("Chrome")!=-1)) && navigator.userAgent.indexOf("Mobile")<0)
             $('#container').jScrollie();
             $('pre').overscroll({showThumbs:false, direction:'horizontal', wheelDirection:'horizontal'});
             $('#page img').wrap('<div class="divImg"><a href="#" onclick="openImage(this); return false;">');
             jQuery('a[rel*=facebox]').facebox();
+            $('#query').focus(function() {
+            	$('#query').animate({'width':'250px'}, 300);
+            }).blur(function() {
+            	$('#query').animate({'width':'200px'}, 300);
+            });
+            entries = null;
+            oldhtml = null;
+            function htmlEscape(str) {
+            	return str.replace(/&/g,'&amp;').                                         
+	                replace(/>/g,'&gt;').                                           
+	                replace(/</g,'&lt;'). 	                
+	                replace(/"/g,'&quot;');
+            }
+            
+            function prettyDate(d) {
+            	var m_names = new Array("January", "February", "March", 
+					"April", "May", "June", "July", "August", "September", 
+					"October", "November", "December");					
+				var curr_date = d.getDate();
+				var sup = "";
+				if (curr_date == 1 || curr_date == 21 || curr_date ==31) {
+				   sup = "st";
+				}
+				else if (curr_date == 2 || curr_date == 22) {
+				   sup = "nd";
+				}
+				else if (curr_date == 3 || curr_date == 23) {
+				   sup = "rd";
+				}
+				else {
+				   sup = "th";
+				}
+				
+				var curr_month = d.getMonth();
+				var curr_year = d.getFullYear();
+				
+				return m_names[curr_month] + " " + curr_date + "<SUP>" + sup + "</SUP> "+ curr_year;
+            }
+            // from http://stackoverflow.com/questions/2731579/convert-an-xml-schema-date-string-to-a-javascript-date
+            var xmlDateToJavascriptDate = function(xmlDate) {
+			  // It's times like these you wish Javascript supported multiline regex specs
+			  var re = /^([0-9]{4,})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})(\.[0-9]+)?(Z|([+-])([0-9]{2}):([0-9]{2}))?$/;
+			  var match = xmlDate.match(re);
+			  if (!match)
+			    return null;
+			
+			  var all = match[0];
+			  var year = match[1];  var month = match[2];  var day = match[3];
+			  var hour = match[4];  var minute = match[5]; var second = match[6];
+			  var milli = match[7]; 
+			  var z_or_offset = match[8];  var offset_sign = match[9]; 
+			  var offset_hour = match[10]; var offset_minute = match[11];
+			
+			  if (offset_sign) { // ended with +xx:xx or -xx:xx as opposed to Z or nothing
+			    var direction = (offset_sign == "+" ? 1 : -1);
+			    hour =   parseInt(hour)   + parseInt(offset_hour)   * direction;
+			    minute = parseInt(minute) + parseInt(offset_minute) * direction;
+			  }
+			  var utcDate = Date.UTC(year, month, day, hour, minute, second, (milli || 0));
+			  return new Date(utcDate);
+			}
+			            
+            function findEntries(q) {
+            	var matches = [];
+            	var rq = new RegExp(q, 'im');
+            	for (var i = 0; i < entries.length; i++) {
+            		var entry = entries[i];
+            		var title = $(entry.getElementsByTagName('title')[0]).text();
+            		var link = $(entry.getElementsByTagName('link')[0]).attr('href');
+            		var content = $(entry.getElementsByTagName('content')[0]).text();            		
+            		if (rq.test(title) || rq.test(link) || rq.test(content)) {
+            			var updated = prettyDate(xmlDateToJavascriptDate($(entry.getElementsByTagName('updated')[0]).text()));
+            			matches.push({'title':title, 'link':link, 'date':updated});
+            		}
+            	}
+            	var html = '<h3 style="text-align:center; margin-bottom:40px;">Search Results for "'+htmlEscape(q)+'"</h3><div id="results">';
+            	for (var i = 0; i < matches.length; i++) {
+            		var match = matches[i];
+            		html += '<div class="results_row"><div class="results_row_left"><a href="'+match.link+'">'+htmlEscape(match.title);
+            		html += '</a></div><div class="results_row_right">'+match.date+'</div></div>';
+            	}
+            	html += '</div>';
+            	$('#content').html(html);
+            }
+            
+            $('#search_form').submit(function(e) {
+            	console.log('submitting…');
+            	var query = $('#query').val();
+            	oldhtml = $('#content').html();
+            	//if (window.history.pushState) {
+	          	//	window.history.pushState(null, 'Search results for '+query, '/#search='+escape(query.replace(/ /g, '+')));
+            	//} else {
+            		window.location.hash = 'search='+escape(query.replace(/ /g, '+'));
+            	//}
+            	$('#content').html('<div id="loader"></div>');
+            	$('#footer').hide();
+            	
+            	$('#query').blur();
+            	if (entries == null) {
+            		$.ajax({url:'/atom.xml', dataType:'xml', success: function(data) {
+            			entries = data.getElementsByTagName('entry');
+            			findEntries(query);
+            		} });
+            	} else {
+            		findEntries(query);
+            	}
+            	e.preventDefault();
+            });
+            if (/search=(.*)/.test(window.location.hash)) {
+            	var q = unescape(window.location.hash.replace(/#search=/g, '').replace(/\+/g, ' '));
+            	$('#query').val(q);
+            	$('#search_form').submit();
+            }
             //$('#headband').noisy({'intensity' : 0.03, 'size' : 300, 'opacity' : 0.298, 'fallback' : '', 'monochrome' : true});
         });
         function openImage(link) {
             document.location = $("> img", $(link)).attr('src');
         }
+
     </script>
 </head>
 <body>
@@ -42,6 +156,9 @@
 </div>
 <div id="container">
     <div id="top"></div>
+    <div id="search"><form method="POST" id="search_form">
+    	<input type="text" name="query" id="query" />
+    </form></div>
 
     <div id="pagecontainer">
         

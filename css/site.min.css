@@ -15,7 +15,7 @@ div.jScrollie{overflow-y:scroll;height:100%;width:110%;overflow-x:hidden;backgro
 .jScrollie #pagecontainer { margin-right:10%; }
 #pagecontainer { margin-top:0px; }
 #container {}
-#header{text-align:center;font-size:.9em;color:#9f9f9f;font-family:Helvetica, sans-serif;padding:25px; padding-top:10px; padding-bottom:48px;}
+#header{text-align:center;font-size:.9em;color:#9f9f9f;font-family:Helvetica, sans-serif;padding:25px; padding-top:0px; margin-top:20px; padding-bottom:48px;}
  h1{font-family:Cabin, Helvetica, sans-serif;font-size:3em;font-weight:700;color:#000;margin-bottom:10px;} h1 a{padding:5px;} h1 a:hover{text-decoration:underline;} a{text-decoration:none;font-weight:600;color:inherit;} a:hover{text-decoration:underline;} p{ margin-bottom:1em; font-family:Georgia, 'Times New Roman', Times, serif;text-indent:0;font-size:1em;line-height:1.7;}  #content p { margin-top:1.5em;margin-bottom:1.5em; }  .smallinfo{font-size:.9em;font-family:Helvetica, Arial, sans-serif;} p:last-child{text-indent:0;}
 
  pre{display:block;-moz-box-shadow:inset 0 0 5px #aaa;-webkit-box-shadow:inset 0 0 5px #aaa;box-shadow:inner 0 0 5px #aaa;font-family:Monaco, monospace;font-size:.85em;background:#eee;line-height:1.3;margin:25px 0;padding:10px;} h3{font-weight:600;font-size:1.5em;margin-bottom:5px;font-family:Helvetica, sans-serif; }
@@ -57,7 +57,7 @@ pre code { font-size:1em; }
 ol, ul { list-style:decimal; font-family:Georgia, 'Times New Roman', Times, serif;font-size:inherit;line-height:1.7; margin-top:1.5em;}
 ul { list-style:circle; }
 ol a, ul a { font-weight:normal; text-decoration:underline; color:#000; }
-.jScrollieClear { background:#333; border:1px solid #333; }
+.jScrollieClear { background:transparent;}
 .note { background:#f2f2f2; font-family:Helvetica, Arial, sans-serif; font-size:1em; margin-top:1.5em; margin-bottom:1.5em; padding:10px; line-height:1.5; border-radius:8px; -moz-box-shadow: inset 0 0 5px #aaa; -moz-border-radius:8px; 
 -webkit-box-shadow: inset 0 0 5px #aaa;
 box-shadow: inner 0 0 5px #aaa; }
@@ -132,3 +132,11 @@ i { font-style:italic;}
 	li { font-size:1em; }
 }
 .dsq-comment-text > a { font-weight:normal !important; text-decoration:underline !important; color:#000 !important;}
+#search { float:right; margin-right:10%; margin-top:15px; width:300px; text-align:right; }
+#search input { border:1px solid #aaaaaa; border-radius:15px; -moz-border-radius:15px; font-size:1.2em; padding:3px; padding-left:30px; padding-right:10px; width:200px; background:white url(/images/searchicon.png); background-repeat:no-repeat;}
+#results {  }
+.results_row { border-bottom:1px dotted #aaa; padding:5px; }
+.results_row_left { display:inline;font-size:1.3em;  }
+.results_row_left a { font-family:Helvetica, Arial, sans-serif; font-weight:normal; padding:5px; }
+.results_row_right {color:#333; display:block; padding-top:9px; float:right; color:#333; font-family:Helvetica, Arial, sans-serif; font-size:.8em;}
+#loader { text-align:center; margin-top:100px; height:25px; width:100%; background:url(/images/ajax-loader.gif); background-position:center; background-repeat:no-repeat; }

@@ -109,9 +109,9 @@ i { font-style:italic;}
 .posttitle { font-size:.86em !important; padding-top:2px;}
 #search { float:right; margin-right:10%; margin-top:15px; width:300px; text-align:right; }
 #search input { border:1px solid #aaaaaa; border-radius:15px; -moz-border-radius:15px; font-size:1.2em; padding:3px; padding-left:30px; padding-right:10px; width:200px; background:white; 
--moz-box-shadow: inset 0 0 2px 2px #aaa;
--webkit-box-shadow: inset 0 0 2px 2px #aaa;
-box-shadow: inset 0 2px 1px 1px #eee;
+-moz-box-shadow: inset 0 0 1px 1px #eee;
+-webkit-box-shadow: inset 0 0 2px 2px #efefef;
+box-shadow: inset 0 0 1px 1px #efefef;
 background-image: url(/images/searchicon.png);
 background-repeat:no-repeat;}
 #results {  }
@@ -149,3 +149,4 @@ background-repeat:no-repeat;}
 	.results_row_right { padding-top:3px; }
 }
 .dsq-comment-text > a { font-weight:normal !important; text-decoration:underline !important; color:#000 !important;}
+quote { display:block; font-family:Georgia, 'Times New Roman', Times, serif;text-indent:0;font-size:1em; white-space:pre; line-height:1.6em; padding-left:20px;	border-left:6px solid #aaa;color:#555;}

@@ -149,4 +149,4 @@ background-repeat:no-repeat;}
 	.results_row_right { padding-top:3px; }
 }
 .dsq-comment-text > a { font-weight:normal !important; text-decoration:underline !important; color:#000 !important;}
-quote { display:block; font-family:Georgia, 'Times New Roman', Times, serif;text-indent:0;font-size:1em; white-space:pre; line-height:1.6em; padding-left:20px;	border-left:6px solid #aaa;color:#555;}
+quote { display:block; font-family:Georgia, 'Times New Roman', Times, serif;text-indent:0;font-size:1em; white-space:pre-line; line-height:1.6em; padding-left:20px;	border-left:6px solid #aaa;color:#555;}

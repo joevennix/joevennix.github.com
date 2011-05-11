@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Finally, a complete Node geocoder library"
+title: "Finally, a complete Node.JS IP geolocation library"
 ---
 I received a message from the user <a href="https://github.com/kuno">kuno</a> on Github today:
 

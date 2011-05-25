@@ -124,7 +124,11 @@
 					$('#content').html(oldhtml);
 					$('#footer').show();
 					$('#query').blur();
+					oldhtml = null;
 				} else {
+					if (oldhtml == null) {
+						oldhtml = $('#content').html(); 
+					}
 					$('#content').html('<div id="loader"></div>');
 	            	$('#footer').hide();
 	            	$('#query').blur().attr('disabled', true);

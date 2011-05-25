@@ -116,7 +116,6 @@
             $(window).bind('hashchange', function(e) {
 				var query = $.param.fragment().replace('+', ' ').replace('search=', '');
 				$('#query').val(query);
-				console.log('Changing state: '+query);
 				if (query == '') {
 					if (oldhtml == null) {
 						oldhtml = $('#content').html(); 

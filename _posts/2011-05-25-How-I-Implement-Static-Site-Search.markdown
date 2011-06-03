@@ -8,7 +8,7 @@ However, my blog isn’t that big, since I am constantly changing servers and lo
 
 So I wrote my own solution. Check it out by typing something into the search bar at the top right. RSS feeds are just XML, which is very easy to parse with Javascript. Even easier (kinda) with jQuery's $.ajax() calls. Here's what my code looks like:
 
-<pre><code>function findEntries(q) {
+<pre><code class="javascript">function findEntries(q) {
   var matches = [];
   var rq = new RegExp(q, 'im');
   for (var i = 0; i &lt; entries.length; i++) {

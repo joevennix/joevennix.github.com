@@ -2,7 +2,7 @@
 layout: post
 title: "GeoIP.JS - An IP Geolocation Library for Node.JS"
 ---
-<pre><code>/*=========    GeoIP.JS Sample Code    ==========*/
+<pre><code class="javascript">/*=========    GeoIP.JS Sample Code    ==========*/
 var geo = require('./GeoIP-js/geoip.js');
 geo.open({ cache: true, filename: './geoip/GeoLiteCity.dat'});
 var coord = geo.lookup('74.125.227.16');

@@ -35,7 +35,7 @@ The JS code that you now see in the Web Inspector is the article extraction algo
 <li>The algorithm also parses next page URL by looking for the link with the best "score"</li>
 <li>You can copy and paste this script into the console of any browser. To run it, you would type:</li>
 </ul>
-<pre><code>var ReaderArticleFinderJS = new ReaderArticleFinder(document);
+<pre><code class="javascript">var ReaderArticleFinderJS = new ReaderArticleFinder(document);
 var article = ReaderArticleFinderJS.findArticle();</code></pre>
 
 This code might be valuable to anyone looking to scrape text content from HTML. If anyone has better pointers into the script’s inner workings, feel free to comment!

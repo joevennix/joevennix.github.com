@@ -112,33 +112,36 @@
             });
             
             $(window).bind('hashchange', function(e) {
-				var query = $.param.fragment().replace('+', ' ').replace('search=', '');
-				$('#query').val(query);
-				if (query == '') {
-					if (oldhtml == null) {
-						oldhtml = $('#content').html(); 
-					}
-					$('#content').html(oldhtml);
-					$('#footer').show();
-					$('#query').blur();
-					oldhtml = null;
-				} else {
-					if (oldhtml == null) {
-						oldhtml = $('#content').html(); 
-					}
-					$('#content').html('<div id="loader"></div>');
-	            	$('#footer').hide();
-	            	$('#query').blur().attr('disabled', true);
-	            	if (entries == null) {
-	            		$.ajax({url:'/atom.xml?r='+(Math.random()*99999999999), dataType:'xml', success: function(data) {
-	            			entries = data.getElementsByTagName('entry');
-	            			findEntries(query);
-	            		} });
-	            	} else {
-	            		findEntries(query);
-	            	}
-	            	$('#query').blur().attr('disabled', false);
-				}
+                var query = $.param.fragment();
+                if (/[#]*search=(.*)/.test(query)) {}
+    				query = $.param.fragment().replace('+', ' ').replace('search=', '');
+    				$('#query').val(query);
+    				if (query ) {
+    					if (oldhtml == null) {
+    						oldhtml = $('#content').html(); 
+    					}
+    					$('#content').html(oldhtml);
+    					$('#footer').show();
+    					$('#query').blur();
+    					oldhtml = null;
+    				} else {
+    					if (oldhtml == null) {
+    						oldhtml = $('#content').html(); 
+    					}
+    					$('#content').html('<div id="loader"></div>');
+    	            	$('#footer').hide();
+    	            	$('#query').blur().attr('disabled', true);
+    	            	if (entries == null) {
+    	            		$.ajax({url:'/atom.xml?r='+(Math.random()*99999999999), dataType:'xml', success: function(data) {
+    	            			entries = data.getElementsByTagName('entry');
+    	            			findEntries(query);
+    	            		} });
+    	            	} else {
+    	            		findEntries(query);
+    	            	}
+    	            	$('#query').blur().attr('disabled', false);
+    				}
+                }
 			});
 			$(window).trigger( 'hashchange' );
         });

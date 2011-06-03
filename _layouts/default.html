@@ -113,7 +113,7 @@
             
             $(window).bind('hashchange', function(e) {
                 var query = $.param.fragment();
-                if (/[#]*search=(.*)/.test(query)) {}
+                if (/[#]*search=(.*)/.test(query)) {
     				query = $.param.fragment().replace('+', ' ').replace('search=', '');
     				$('#query').val(query);
     				if (query ) {

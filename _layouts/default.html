@@ -19,13 +19,16 @@
 			entries = null;
            // if (((navigator.userAgent.indexOf("WebKit")!=-1)||(navigator.userAgent.indexOf("Mozilla")!=-1) || (navigator.userAgent.indexOf("Chrome")!=-1)) && navigator.userAgent.indexOf("Mobile")<0)
             //  $('#container').jScrollie();
-            $('#page img').wrap('<div class="divImg"><a href="#" onclick="openImage(this); return false;">');
+            $('#page a img').wrap('<div class="divImg">');
+            $('#page img').not('#page a img').wrap('<div class="divImg"><a href="#" onclick="openImage(this); return false;">');
+
             jQuery('a[rel*=facebox]').facebox();
             $('#query').focus(function() {
             	$('#query').animate({'width':'250px'}, 300);
             }).blur(function() {
             	$('#query').animate({'width':'200px'}, 300);
             });
+
             entries = null;
             oldhtml = null;
             function htmlEscape(str) {
@@ -111,20 +114,12 @@
             	e.preventDefault();
             });
             
-            $(window).bind('hashchange', function(e) {
+            $(window).bind('hashchange', function(e) {                
                 var query = $.param.fragment();
                 if (/[#]*search=(.*)/.test(query)) {
     				query = $.param.fragment().replace('+', ' ').replace('search=', '');
     				$('#query').val(query);
-    				if (query ) {
-    					if (oldhtml == null) {
-    						oldhtml = $('#content').html(); 
-    					}
-    					$('#content').html(oldhtml);
-    					$('#footer').show();
-    					$('#query').blur();
-    					oldhtml = null;
-    				} else {
+    				 if (query) {
     					if (oldhtml == null) {
     						oldhtml = $('#content').html(); 
     					}
@@ -141,6 +136,14 @@
     	            	}
     	            	$('#query').blur().attr('disabled', false);
     				}
+                } else {
+                    if (oldhtml == null) {
+                        oldhtml = $('#content').html(); 
+                    }
+                    $('#content').html(oldhtml);
+                    $('#footer').show();
+                    $('#query').blur();
+                    oldhtml = null;
                 }
 			});
 			$(window).trigger( 'hashchange' );

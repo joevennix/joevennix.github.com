@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,8 +19,8 @@
 			entries = null;
            // if (((navigator.userAgent.indexOf("WebKit")!=-1)||(navigator.userAgent.indexOf("Mozilla")!=-1) || (navigator.userAgent.indexOf("Chrome")!=-1)) && navigator.userAgent.indexOf("Mobile")<0)
             //  $('#container').jScrollie();
-            $('#page a img').wrap('<div class="divImg">');
-            $('#page img').not('#page a img').wrap('<div class="divImg"><a href="#" onclick="openImage(this); return false;">');
+            $('#page a img').not('.nowrap').wrap('<div class="divImg">');
+            $('#page img').not('#page a img').not('.nowrap').wrap('<div class="divImg"><a href="#" onclick="openImage(this); return false;">');
 
             jQuery('a[rel*=facebox]').facebox();
             $('#query').focus(function() {

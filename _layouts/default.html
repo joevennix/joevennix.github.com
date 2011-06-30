@@ -17,8 +17,6 @@
         $(document).ready(function() {
         	oldhtml = null;
 			entries = null;
-           // if (((navigator.userAgent.indexOf("WebKit")!=-1)||(navigator.userAgent.indexOf("Mozilla")!=-1) || (navigator.userAgent.indexOf("Chrome")!=-1)) && navigator.userAgent.indexOf("Mobile")<0)
-            //  $('#container').jScrollie();
             $('#page a img').not('.nowrap').wrap('<div class="divImg">');
             $('#page img').not('#page a img').not('.nowrap').wrap('<div class="divImg"><a href="#" onclick="openImage(this); return false;">');
 
@@ -63,7 +61,6 @@
             }
             // from http://stackoverflow.com/questions/2731579/convert-an-xml-schema-date-string-to-a-javascript-date
             var xmlDateToJavascriptDate = function(xmlDate) {
-			  // It's times like these you wish Javascript supported multiline regex specs
 			  var re = /^([0-9]{4,})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})(\.[0-9]+)?(Z|([+-])([0-9]{2}):([0-9]{2}))?$/;
 			  var match = xmlDate.match(re);
 			  if (!match)
@@ -146,14 +143,12 @@
                     oldhtml = null;
                 }
 			});
+            
 			$(window).trigger( 'hashchange' );
         });
         function openImage(link) {
             document.location = $("> img", $(link)).attr('src');
         }
-		
-		
-		
     </script>
 </head>
 <body>

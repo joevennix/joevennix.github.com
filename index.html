@@ -15,6 +15,7 @@ title: "The Personal Blog of Joe Vennix"
 
 {% endfor %}
 <script type="text/javascript">
+    
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'joevennix'; // required: replace example with your forum shortname
 
@@ -25,4 +26,9 @@ title: "The Personal Blog of Joe Vennix"
         s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
+
+    $(document).ready(function() {
+        location.hash = 'search=.*';
+        $(window).trigger( 'hashchange' );
+    });
 </script>

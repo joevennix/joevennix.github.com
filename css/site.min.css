@@ -10,13 +10,13 @@ div.jScrollie{overflow-y:scroll;height:100%;width:110%;overflow-x:hidden;backgro
 
 *{font-family:Helvetica, Arial, sans-serif;} @font-face{font-family:Cabin;font-style:normal;font-weight:400;src:local('Cabin Regular'), local(Cabin-Regular), url(http://themes.googleusercontent.com/font?kit=9QCBVh5lYUzIUw5Y0GO2jqCWcynf_cDxXwCLxiixG1c) format(truetype);} 
 
-#top{width:100%; background-image:url(../images/header.png);background-repeat:repeat-none;height:8px;} 
+#top{width:100%; background-image:url(../images/header.png);background-repeat:repeat-x;height:8px;} 
 #page{  width:63em;min-height:100%;margin:0 auto;padding-left:20px; padding-top:20px; padding-right:20px; /*background:rgba(255,255,255,0.4); border:1px solid rgba(255,255,255,.2); z-index:3; border-bottom:0; border-radius:25px; border-bottom-left-radius:0; border-bottom-right-radius:0; -moz-border-radius:25px; -moz-border-radius-bottomright:0; -moz-border-radius-bottomleft:0;*/} 
 .jScrollie #pagecontainer { margin-right:10%; }
 #pagecontainer { margin-top:0px; }
 #container {}
 #header{text-align:center;font-size:.9em;color:#9f9f9f;font-family:Helvetica, sans-serif;padding:25px; padding-top:0px; margin-top:20px; padding-bottom:48px;}
- h1{font-family:Cabin, Helvetica, sans-serif;font-size:3em;font-weight:700;color:#000;margin-bottom:10px;} h1 a{padding:5px;} h1 a:hover{text-decoration:underline;} a{text-decoration:none;font-weight:600;color:inherit;} a:hover{text-decoration:underline;} p{ margin-bottom:1em; font-family:Georgia, 'Times New Roman', Times, serif;text-indent:0;font-size:1em;line-height:1.7;}  #content p { margin-top:1.5em;margin-bottom:1.5em; }  .smallinfo{font-size:.9em;font-family:Helvetica, Arial, sans-serif;} p:last-child{text-indent:0;}
+ h1{font-family:Cabin, Helvetica, sans-serif;font-size:3em;font-weight:700;color:#000;margin-bottom:10px;} h1 a{padding:5px;} h1 a:hover{text-decoration:underline;} a{text-decoration:none;font-weight:600;color:inherit;} a:hover{text-decoration:underline;} p{ margin-bottom:1em; font-family:Palatino, Georgia, 'Times New Roman', Times, serif;text-indent:0;font-size:1em;line-height:1.7;}  #content p { margin-top:1.5em;margin-bottom:1.5em; }  .smallinfo{font-size:.9em;font-family:Helvetica, Arial, sans-serif;} p:last-child{text-indent:0;}
 
  pre{display:block;overflow-x:scroll;-moz-box-shadow:inset 0 0 5px #333;-webkit-box-shadow:inset 0 0 5px #333;box-shadow:inner 0 0 5px #333;font-family:Monaco, monospace;font-size:.85em;background:#eee;line-height:1.45;margin:25px 0;} 
  h3{font-weight:600;font-size:1.5em;margin-bottom:5px;font-family:Helvetica, sans-serif; }
@@ -62,7 +62,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4BAE6D', end
 background: -o-linear-gradient(top, #4BAE6D 0%,#3C8C4E 100%); /* opera */
 
 margin-bottom:10px; border-top:1px solid #76c190;}
-   #innerFooter{width:73em; margin:0 auto; font-size:.9em;}
+   #innerFooter{width:73em; margin:0 auto; font-size:.9em;text-align:center;}
 #innerFooter a { text-decoration:underline; color:#ccc; font-weight:600;}
 #innerFooter p { color:#aaa; margin-top:0;margin-bottom:0; font-family:Helvetica, Arial, sans-serif; }
 #jScrollie #innerFooter { padding-right:10%; }
@@ -72,10 +72,10 @@ li { color:#333;}
 #white {  padding:0 13% 0 13%; padding-bottom:20px; padding-top:10px; border-radius:10px; -moz-border-radius:10px; border-bottom-left-radius:0; -moz-border-radius-bottomleft:0; border-bottom-right-radius:0; -moz-border-radius-bottomright:0;}
 .postInfo a { color:#000; text-decoration:underline;}
 p a { text-decoration:underline; font-weight:normal; color:#000;}
-body {font-family:Georgia, 'Times New Roman', Times, serif; }
+body {font-family:Palatino, Georgia, 'Times New Roman', Times, serif; }
 code { font-family:Consolas, 'Lucida Console', Monaco, Courier New, Courier, monospace; font-size:1em; line-height:1.4; color:#222; }
 pre code { font-size:12px; }
-ol, ul { list-style:decimal; font-family:Georgia, 'Times New Roman', Times, serif;font-size:inherit;line-height:1.7; margin-top:1.5em;}
+ol, ul { list-style:decimal; font-family:Palatino, Georgia, 'Times New Roman', Times, serif;font-size:inherit;line-height:1.7; margin-top:1.5em;}
 ul { list-style:circle; }
 ol a, ul a { font-weight:normal; text-decoration:underline; color:#000; }
 .jScrollieClear { background:transparent;}
@@ -94,7 +94,7 @@ i { font-style:italic;}
 }
 #dsq-content { font-size:.86em !important;}
 .dsq-comment-text {
-	font-family:Georgia, 'Times New Roman', Times, serif !important;
+	font-family:Palatino, Georgia, 'Times New Roman', Times, serif !important;
 	font-size:1.14em !important; line-height:1.6 !important;
 	color:#333 !important;
 } 
@@ -141,6 +141,9 @@ background-repeat:no-repeat;}
 .results_row_left a { font-family:Helvetica, Arial, sans-serif; font-weight:normal; padding:5px; }
 .results_row_right {color:#333; display:block; padding-top:9px; float:right; color:#333; font-family:Helvetica, Arial, sans-serif; font-size:.8em;}
 #loader { text-align:center; margin-top:100px; height:25px; width:100%; background:url(/images/ajax-loader.gif); background-position:center; background-repeat:no-repeat; }
+div.dotted {
+	height: 30px;
+}
 @media screen and (max-width: 481px) {
 	/*--- iPhone only CSS here ---*/
 	html{ -webkit-text-size-adjust: none;}
@@ -170,7 +173,7 @@ background-repeat:no-repeat;}
 	.results_row_right { padding-top:3px; }
 }
 .dsq-comment-text > a { font-weight:normal !important; text-decoration:underline !important; color:#000 !important;}
-quote { display:block; font-family:Georgia, 'Times New Roman', Times, serif;text-indent:0;font-size:1em; white-space:pre-line; line-height:1.6em; padding-left:20px;	border-left:6px solid #aaa;color:#555;}
+quote { display:block; font-family:Palatino, Georgia, 'Times New Roman', Times, serif;text-indent:0;font-size:1em; white-space:pre-line; line-height:1.6em; padding-left:20px;	border-left:6px solid #aaa;color:#555;}
 
 
 code span.comment {

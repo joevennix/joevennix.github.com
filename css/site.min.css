@@ -12,7 +12,7 @@ div.jScrollie{overflow-y:scroll;height:100%;width:110%;overflow-x:hidden;backgro
 
 #top{width:100%; background-image:url(../images/header.png);background-repeat:repeat-x;height:3px;} 
 #page{ min-height:100%;margin:0 auto;padding-left:20px; padding-top:20px; padding-right:20px; /*background:rgba(255,255,255,0.4); border:1px solid rgba(255,255,255,.2); z-index:3; border-bottom:0; border-radius:25px; border-bottom-left-radius:0; border-bottom-right-radius:0; -moz-border-radius:25px; -moz-border-radius-bottomright:0; -moz-border-radius-bottomleft:0;*/} 
-.jScrollie #pagecontainer { margin-right:10%; }
+.jScrollie #pagecontainer { margin-right:10%;max-width:60em; }
 #pagecontainer { margin-top:0px; }
 #container {}
 #header{text-align:center;font-size:.9em;color:#9f9f9f;font-family:Helvetica, sans-serif;padding:25px; padding-top:0px; margin-top:20px; padding-bottom:48px;}

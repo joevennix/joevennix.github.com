@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Improvements to jsobfu"
+title: "Improvements to jsobfu, Metasploit's Javascript Obfuscator"
 ---
 
 (Note: this is a cross-post of an article I wrote for Metasploit's blog. The original post can be found [here](https://community.rapid7.com/community/metasploit/blog/2014/12/27/improvements-to-jsobfu)).

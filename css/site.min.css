@@ -10,7 +10,7 @@ div.jScrollie{overflow-y:scroll;height:100%;width:110%;overflow-x:hidden;backgro
 
 *{font-family:Helvetica, Arial, sans-serif;} @font-face{font-family:Cabin;font-style:normal;font-weight:400;src:local('Cabin Regular'), local(Cabin-Regular), url(http://themes.googleusercontent.com/font?kit=9QCBVh5lYUzIUw5Y0GO2jqCWcynf_cDxXwCLxiixG1c) format(truetype);} 
 
-#top{width:100%; background-image:url(../images/header.png);background-repeat:repeat-x;height:8px;} 
+#top{width:100%; background-image:url(../images/header.png);background-repeat:repeat-x;height:3px;} 
 #page{ min-height:100%;margin:0 auto;padding-left:20px; padding-top:20px; padding-right:20px; /*background:rgba(255,255,255,0.4); border:1px solid rgba(255,255,255,.2); z-index:3; border-bottom:0; border-radius:25px; border-bottom-left-radius:0; border-bottom-right-radius:0; -moz-border-radius:25px; -moz-border-radius-bottomright:0; -moz-border-radius-bottomleft:0;*/} 
 .jScrollie #pagecontainer { margin-right:10%; }
 #pagecontainer { margin-top:0px; }
@@ -164,7 +164,7 @@ div.dotted {
 	h1 {font-size:2.5em; margin-bottom:10px; }
 	.separator {height:10px;}
 	#header { padding:12px; padding-bottom:35px; }
-	#top{width:100%; background-image:url(../images/iphone_header.png);background-repeat:repeat-x;height:40px;} 
+	#top{width:100%; background-image:url(../images/iphone_header.png);background-repeat:repeat-x;height:6px;} 
 	code {font-size:.85em; }
 	li { font-size:1em; }
 	#search { display:block; height:20px; float:none; width:auto; text-align:center;}

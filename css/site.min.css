@@ -199,3 +199,34 @@ body {
   background:#fff;//-webkit-gradient(radial,250 50,0,250 50,800,from(#dadfda),to(#dfdfdf)) #dfffdf;
 }
 .popup { background: #fff;}
+#content .postContent table {
+  background: #fff;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#content .postContent table td, #content .postContent table th {
+  padding: 6px 10px;
+  border: 0;
+  border-right: 1px dotted #aaa;
+}
+#content .postContent table tr {
+  border: 1px dotted #aaa;
+  border-bottom: 0;
+  border-right: 0;  
+}
+#content .postContent table tbody {
+  border-bottom: 1px dotted #aaa;
+}
+#content .postContent table th {
+  border: 1px solid #333;
+  background: #333;
+  color: #fff;
+}
+#content .postContent h4 {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+sup { 
+  vertical-align: super;
+  font-size: smaller;
+}

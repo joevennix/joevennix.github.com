@@ -15,7 +15,7 @@ jsobfu was written by James [egypt](https://twitter.com/egyp7) Lee and was the f
 
 If you are writing a browser exploit or Javascript post-exploitation module, we have added a convenient mixin for allowing dead-simple obfuscation that can be controlled by the end-user with a datastore option. Your code will look something like:
 
-include Msf::Exploit::JSObfu
+<pre><code class="ruby">include Msf::Exploit::JSObfu
 
 def generate_html
   js_obfuscate("trigger_exploit();");

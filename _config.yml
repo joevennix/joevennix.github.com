@@ -2,6 +2,6 @@ title:    "Between Extremes"
 url:      http://joevennix.com
 author:   Joe Vennix
 email:    joe@joevennix.com
-markdown: maruku
+markdown: Kramdown
 lsi: false
 pygments: true

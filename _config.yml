@@ -4,4 +4,4 @@ author:   Joe Vennix
 email:    joe@joevennix.com
 markdown: Kramdown
 lsi: false
-highlighter: true
+pygments: true

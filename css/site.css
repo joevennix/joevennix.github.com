@@ -26,7 +26,7 @@ p:last-child {text-indent:0;}
 .postInfo { margin-top:40px; text-align:right; padding-bottom:7px;font-size:13px;font-family:Helvetica, sans-serif; }
 .postInfo a { font-weight:normal; color:#333; }
 ::selection {
-	background: #4bae6d; 
+	background: #4bae6d;
 }
 ::-moz-selection {
         background: #4bae6d; /* Firefox */
@@ -36,4 +36,4 @@ p:last-child {text-indent:0;}
 .graycolor::-moz-selection, .graycolor a::-moz-selection { color:#000;}
 .divImg { text-align:center; margin:35px 0;}
 .divImg img { border:1px solid #aaa;}
-#innerFooter { width:700px; padding-right:10%; margin:0 auto; }
+#innerFooter { padding-right:10%; margin:0 auto; }

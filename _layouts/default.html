@@ -9,7 +9,7 @@
     <link rel="alternate" type="application/atom+xml" title="Joe Vennix's Feed" href="/atom.xml" />
     <script src="/js/jquery-1.5.1.min.js" type="text/javascript"></script>
     <script src="/js/jquery.jscrollie.js" type="text/javascript"></script>
-    
+
     <script src="/js/jquery.bbq.min.js" type="text/javascript"></script>
     <script src="/js/SyntaxHighlighting.js" type="text/javascript"></script>
     <script src="/js/facebox.js" type="text/javascript"></script>
@@ -90,14 +90,14 @@
                 html += '</div>';
                 $('#content').html(html);
             }
-            
+
             $('#search_form').submit(function(e) {
                 var query = $('#query').val();
                 window.location.hash = 'search='+escape(query.replace(/\s/g, '+'));
                 e.preventDefault();
             });
-            
-            $(window).bind('hashchange', function(e) {                
+
+            $(window).bind('hashchange', function(e) {
                 var query = $.param.fragment();
                 if (/[#]*search=(.*)/.test(query)) {
                     query = $.param.fragment().replace('+', ' ').replace('search=', '');
@@ -121,7 +121,7 @@
                     }
                 } else {
                     if (oldhtml == null) {
-                        oldhtml = $('#content').html(); 
+                        oldhtml = $('#content').html();
                     }
                     $('#content').html(oldhtml);
                     $('#footer').show();
@@ -129,7 +129,7 @@
                     oldhtml = null;
                 }
             });
-            
+
             $(window).trigger( 'hashchange' );
         });
         function openImage(link) {
@@ -142,9 +142,9 @@
     <div id="me"><div id="inme">
         <h5>Hello, I’m Joe Vennix, and this is where I blog. </h5>
         <div class="separator"></div>
-      
-            <p> <img src="/images/me.png" align="left" style="padding-right:10px; padding-top:5px;" /> I am a twenty-three year-old programmer currently working full-time for <a href="https://rmn.com">RetailMeNot</a>. GotIn the past I've worked on <a href='https://metasploit.com'>Metasploit</a> and <a href='https://clay.io'>clay.io</a>, and majored in CS at the University of Texas at Austin. I like to do random security research, with a focus on Android and OS X.</p>
-       
+
+            <p> <img src="/images/me.png" align="left" style="padding-right:10px; padding-top:5px;" /> I am a twenty-three year-old programmer currently working full-time for <a href="https://rmn.com">RetailMeNot</a>. In the past I've worked on <a href='https://metasploit.com'>Metasploit</a> and <a href='https://clay.io'>clay.io</a>, and majored in CS at the University of Texas at Austin. I like to do random security research, with a focus on Android and OS X.</p>
+
             <p>I am currently busy with life and stuff, but from time to time I will post a personal project up here.</p>
 
             <p><a href="http://twitter.com/joevennix">Twitter</a> / <a href="http://github.com/joevennix">Github</a></p>
@@ -157,7 +157,7 @@
     </form></div>
 
     <div id="pagecontainer">
-        
+
         <div id="page"><div id="white">
             <div id="header">
                 <h1><a href="/">[between<br />extremes]</a></h1>
